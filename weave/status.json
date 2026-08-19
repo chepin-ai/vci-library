@@ -2,12 +2,13 @@
  "line": "ci-library",
  "vrepo": "vci-library",
  "last_pulse": "20260819-011029",
- "chain_head": "de166d699fdd2f25",
+ "chain_head": "9307f15a6a39d4b9",
  "pulses_total": 4,
  "snapshot": {
   "registry": "not-registered",
   "outbox": null
  },
  "verdict": "ok",
- "spec": "VCI-LOAD-01 波1（心跳/快照/写链/对外验证面）"
+ "spec": "VCI-LOAD-01 波1（心跳/快照/写链/对外验证面）",
+ "heal_note": "F2 愈合 2026-08-19T08:17:23Z：status 链头重建对齐 pulse.log"
 }
