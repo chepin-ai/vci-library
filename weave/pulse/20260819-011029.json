@@ -1,0 +1,10 @@
+{
+ "ts": "20260819-011029",
+ "line": "ci-library",
+ "vrepo": "vci-library",
+ "snapshot": {
+  "registry": "not-registered",
+  "outbox": null
+ },
+ "prev_chain": "2cbba4c0ce5c7e53"
+}
