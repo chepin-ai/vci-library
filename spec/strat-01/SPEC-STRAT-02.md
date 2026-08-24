@@ -55,9 +55,9 @@ $$\|\mathcal{F}(\pi)-\mathcal{F}(\pi')\| \le \rho\|\pi-\pi'\|,\ \rho<1 \;\Righta
 **与论题 1 的一致性**：臂流模型下遗憾界依然可界（Berry-Fristedt + mortal/restless bandits 文献）——"永远可能有更好选择进场"不再破坏策略，而是**被预算结构和门禁吸收**。
 
 ## 5. 落地映射
-- n7 实现规格更新：ure_tick.py 增加 触发器 T1-T4 判定 + Whittle 式排序 + 试用池/门禁状态（roadmap.json 增加 `probation`/`retired` 两池字段）
+- n7 实现规格更新：pareto_tick.py（ure_tick.py 已归档）增加 触发器 T1-T4 判定 + Whittle 式排序 + 试用池/门禁状态（roadmap.json 增加 `probation`/`retired` 两池字段）
 - 放蜂的执行通道 = DIAL 胶囊（cap=explore，供推者 P-B 会话端优先）
-- 参数表（β,γ,ε,θ₁..₅,K_max）入 `ure/params.json`，epoch 回放自调（§3 收缩条件内）
+- 参数表（β,γ,ε,θ₁..₅,K_max）入 `roadmap.json.params`，epoch 回放自调（§3 收缩条件内）
 
 ## 6. 开放项
 Q4 Whittle 指数在本臂型（可检索、可放蜂、有胶囊回执）下的精确可计算性——restless 且带外部信息注入，文献位置待考（候选 n8 姊妹节点）
