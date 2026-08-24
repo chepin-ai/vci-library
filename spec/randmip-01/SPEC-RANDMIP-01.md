@@ -39,7 +39,7 @@
 
 ## 4. 落地接线
 - Kaggle 计算 lane：kaggle-compute（蒙特卡洛验证 C1-C6 + 链种子 PRNG + NW toy）——在部署
-- seed-on-chain 入 ure_tick.py 规格（n7）：所有随机决策记 seed 入链
+- seed-on-chain 入 pareto_tick.py 规格（ure_tick.py 已归档）（n7）：所有随机决策记 seed 入链
 - MIP 式复核协议入 STRAT-01 锦标赛触发器（T2）的验收标准
 - Quafu 量子线预留 MIP* 验证接口（非局域博弈），考古后接
 
