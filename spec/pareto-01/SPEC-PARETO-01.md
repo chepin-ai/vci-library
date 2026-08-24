@@ -37,6 +37,6 @@ $$\max_{\omega\in\Delta} \sum_i \omega_i\,[u_i + \beta\sigma_i + \gamma b_i]\qua
 用途：O 的持久化、调度器状态指针、唤醒条件。**链管 CI 记忆，注入环管会话记忆，双轨互补。**
 
 ## 6. 落地
-- n7 节点：把 §2 决策规则写进 ure_tick.py（替换等权 tick）——纯数值，零 LLM 依赖
+- n7 节点：把 §2 决策规则写进 pareto_tick.py（替换等权 tick；ure_tick.py 已归档）——纯数值，零 LLM 依赖
 - v0 参数：β=0.5, γ=0.3, ε=0.05（起点，epoch 回放自调）
 - 锦标赛模式挂接 cisbr 模型×场景矩阵（SPEC-DIAL-01 P-A2）
