@@ -15,7 +15,7 @@
 
 ## 2. 架构：三级供推者 + 一条胶囊总线
 
-> **v1.1 修订（2026-08-24，root 示 vinf-market-kernel secrets 图立法）**：业务线私仓已统一绑定 LLM token 船队（DeepSeek×3/Kimi×3/LongCat×2/IFIND/Kaggle 等），**轻/中型推理与简单智能应用在业务仓本地完成，私仓多智能体不被杜绝**。故 P-A 层改为双模：
+> **v1.1 修订（2026-08-24，root 示 VINF-VAULT secrets 图立法）**：业务线私仓已统一绑定 LLM token 船队（DeepSeek×3/Kimi×3/LongCat×2/IFIND/Kaggle 等），**轻/中型推理与简单智能应用在业务仓本地完成，私仓多智能体不被杜绝**。故 P-A 层改为双模：
 
 ```
                 ┌──────────── vci-usrm（公·影子）────────────┐
@@ -28,9 +28,9 @@
         └───┬───────────────────┬───────────────────────┬─────────────┘
             ▼                   ▼                       ▼
    P-A 私域推理（双模）    P-B 会话端（在线时）      P-C 复用库集中重服务
-   A1 业务仓本地自推理     usrm/cfts 激活窗口      ci-playground batch
+   A1 业务仓本地自推理     usrm/cfts 激活窗口      〈RED〉 batch
       （轻/中载·自带key）  （创造性/蒸馏推理）      （LEAN/Kaggle/ATP 等）
-   A2 中心船队 ci-bus
+   A2 中心船队 〈RED〉
       （重载/多样性·cisbr
         模型×场景矩阵）
             │                   │                       │
@@ -52,7 +52,7 @@
 | 轻/中载 + 属某业务线语境 | **P-A1 业务仓本地自推理**（默认首选，就近、自带 key、自适应负载均衡） |
 | 会话端激活（心跳 <15min） | P-B 会话端优先（创造性/蒸馏，零 CI 成本） |
 | 重载/需多模型碰撞/业务仓不愿载 | P-A2 中心船队（cisbr 矩阵选模型） |
-| 重型/批量（LEAN 批、Kaggle、ATP） | P-C ci-playground 委托 batch |
+| 重型/批量（LEAN 批、Kaggle、ATP） | P-C 〈RED〉 委托 batch |
 | 全部不可用 | 节点标 `blocked:inference`，backoff 加倍，链留痕，达阈 RETURN |
 
 ## 5. 与 URE 的接口

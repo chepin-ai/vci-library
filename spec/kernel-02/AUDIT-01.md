@@ -28,12 +28,12 @@
 |---|---|---|
 | B1 | scripts/ure_tick.py（214 行全量死代码）vs pareto_tick.py | 新旧调度器并存，规格指向旧件（见 A7） |
 | B2 | otp_gate_worker.py 三份异版：vci-usrm/scripts/（v3 issue-loop）、vci-usrm/workers/（T171 push 旧版）、vci-library/kit/usrm-01/（md5 三者互异） | 工蜂三源漂移，修复无法收敛 |
-| B3 | 凭证四套：URE_APP_* 与 ATP_APP_* 互为 fallback（ure-sweeper.yml:36-54）、CI_OPS_APP_*（watchdog）、CI_OPS_HUB_KEY（bench-qlv）；铸 token 三种实现（手写 JWT×2、create-github-app-token@v1、@v2） | 密钥面×4、同功能代码×3 |
+| B3 | 凭证四套：URE_APP_* 与 ATP_APP_* 互为 fallback（ure-sweeper.yml:36-54）、CI_OPS_APP_*（watchdog）、〈RED〉（bench-qlv）；铸 token 三种实现（手写 JWT×2、create-github-app-token@v1、@v2） | 密钥面×4、同功能代码×3 |
 | B4 | outbox-publish.yml（GITHUB_TOKEN 直推、未 persist-credentials:false、未摘 extraheader）vs ure-sweeper.yml:90-93（App token+显式摘除） | 同仓两种 push 安全姿势 |
 | B5 | line-producer.yml 三仓逐字节复刻（同 cron '11 */6'）；shadow-pulse/watchdog 三仓复制仅错峰分钟不同 | 模板未抽象，改动需三处同步 |
 | B6 | chain 双键名 node/arm，pareto_tick.py:127 兼容读取 | 同一语义两个字段名，下游皆须兼容 |
 | B7 | vci-usrm/zkp-pat-check.yml | 无 permissions 块；echo 引号未转义产出非法 JSON；"report to chain file" 实际只传 artifact 不回仓，名不符实 |
-| B8 | OTP_PHONE 双处存放：secrets（各 otp workflow）+ repo Variables（kit/usrm-01/PATHS-ATLAS.md:15 自称"API 可读=自助收割"） | 同一 PII 两套口径 |
+| B8 | 〈RED〉 双处存放：secrets（各 otp workflow）+ repo Variables（kit/usrm-01/PATHS-ATLAS.md:15 自称"API 可读=自助收割"） | 同一 PII 两套口径 |
 | B9 | N3-rules-formal.md:42-56 内嵌 LEAN 与 Rules.lean 逐字重复；Rules.lean:1 声称"sorry 待回灌"但全文无 sorry，:13 dagFrontier 未定义（不可编译）；Ev 枚举缺 escalate/retire/silent/hook/conflict/done（N3:9 已使用） | 双源漂移 + 骨架不可编译 + 词汇表不齐 |
 
 ## C. 缺口 / 缺陷 / 瓶颈
@@ -57,7 +57,7 @@
 
 1. **P0 手机号明文**：vci-usrm/inbox/otp_aftersend.png（公仓，1440×900 截图）清晰显示 +86 13902209204。违反自定立法"公面不含真人标识符"（BACKFILL #13 记录），且 kit/INDEX.md:7 告诫 F1 早已点名此通道"须限期整改"——预警未执行。通道=otp-issue-trigger.yml / otp-gate.yml 的 `git add -A inbox/ → push`（配合 otp_gate_worker.py:126"发码后必截图"）。
 2. **P0 活凭证入公仓**：inbox/.kimi_session.json 含 Kimi 个人账号 refresh_token（JWT，exp≈2026-11）+ 全量 cookies/localStorage。任何人可匿名拉取并接管会话。与 D1 同通道；artifact 1 天保留形同虚设。
-3. **P0 无授权闸的公仓触发面**：otp-issue-trigger.yml 对 `issues:opened` 无 author_association 过滤——任何 GitHub 用户开 "[SENDCODE]"/"[OTP] xxxxxx" 标题 issue 即可触发对 OTP_PHONE 的发码轰炸与登录尝试，并驱动 contents:write 推送。
+3. **P0 无授权闸的公仓触发面**：otp-issue-trigger.yml 对 `issues:opened` 无 author_association 过滤——任何 GitHub 用户开 "[SENDCODE]"/"[OTP] xxxxxx" 标题 issue 即可触发对 〈RED〉 的发码轰炸与登录尝试，并驱动 contents:write 推送。
 4. **P1 公仓绑私钥违立法**：AI_FULL_PAT（classic PAT 满 scopes，PATHS-ATLAS A5 自述）、API_DEEPSEEK_KEY_1 存于公仓 secrets，直接违反 DIAL-01 §0 与 README 铁律；zkp-pat-check.yml 无 permissions 声明。
 5. **P1 最小权限失守**：URE/ATP App installation 实测覆盖 21 仓，sweeper 单 token 可写全邦；ure-sweeper.yml:14-15 声明 `contents: read` 与 :92-93 实际 x-access-token 推送形成"声明-实际"两张皮。
 6. **P2 凭证驻留**：outbox-publish.yml 未关 persist-credentials，GITHUB_TOKEN 留 .git/config；bench-qlv /tmp/hub.pem 有删除前窗口；kaggle legacy 模式 kaggle.json 落盘（runner 临时）。

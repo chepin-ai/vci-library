@@ -61,11 +61,11 @@
 | 项 | 现状 | 需求判定 |
 |---|---|---|
 | installation 22 仓（ci-* 控制面 + vci-* 影子含 vinf/ucif2/qgl/cfts/root） | ✅ 已够全息感知的读面 | 足 |
-| 业务线私仓本体（vinf-market-kernel 等） | ❌ 不可见 | **不需要**——墙纪律下影子+胶囊回执已足（W4） |
-| ci-control Actions infra | ❌ 秒败（额度？） | 需恢复（root 侧）；usrm 降级面已兜住 |
+| 业务线私仓本体（VINF-VAULT 等） | ❌ 不可见 | **不需要**——墙纪律下影子+胶囊回执已足（W4） |
+| HUB-CORE Actions infra | ❌ 秒败（额度？） | 需恢复（root 侧）；usrm 降级面已兜住 |
 | LLM 推理（DIAL P-A1） | ❌ 业务仓不在 installation | 经胶囊总线委托（root/cisbr 侧执行）；会话端 P-B 兜底 |
 | Quafu 真量子 | 🟡 GHZ-5 poller 挂着 | 长线，非关键路径 |
-**结论：最小权限集=现状（22 仓读写 + lobby 评论 + Kaggle）+ ci-control Actions 恢复一项。无新增私域权限需求——这是墙架构的self-test：全息感知不需要穿墙读私域明文。**
+**结论：最小权限集=现状（22 仓读写 + lobby 评论 + Kaggle）+ HUB-CORE Actions 恢复一项。无新增私域权限需求——这是墙架构的self-test：全息感知不需要穿墙读私域明文。**
 
 ### 资源集
 内部：sweeper/oblig/guard/monitor 四常驻 + ATP/TN/Kaggle/Lean 四实验室 + 胶囊总线 + 链体系。
@@ -74,13 +74,13 @@
 ## §6 CI-OS 制度机器模型批判与融合方案
 
 ### 批判（基于 22 仓可读面）
-1. **ci-* 与 vci-* 双体系的镜像开销**：56 个 disabled workflow（ci-control）说明镜像层有过载史——制度设计偏"全镜像"，缺"按需影子"（本卷 §4 的 HoloSense 即按需版）
+1. **ci-* 与 vci-* 双体系的镜像开销**：56 个 disabled workflow（HUB-CORE）说明镜像层有过载史——制度设计偏"全镜像"，缺"按需影子"（本卷 §4 的 HoloSense 即按需版）
 2. **infra 单点**：私有仓额度耗尽即全中心停摆——义务机的降级面（usrm 执行+锚点双写）应推广为制度（任何中心件必有公域降级面）
 3. **驱动单极**：旧制以 cron/event 为主，无义务因果驱动（§3 补齐）
 ### 融合方案（三层，不拆墙）
 - 感知融合：HoloSense Φ 场从 vci-* 影子采集（现状即可）
 - 驱动融合：义务因果驱动落在 vci-usrm（公域可审计），私域动作经 W5 影子驱动（HMAC 意图+回执）
-- 制度融合：义务台账升格为联邦法（各仓 Gen 本地产生、ci-root 聚合、外部层审计）——**制度即义务机的建制化**
+- 制度融合：义务台账升格为联邦法（各仓 Gen 本地产生、〈RED〉 聚合、外部层审计）——**制度即义务机的建制化**
 
 ## §7 量子×张量 deduction 线（锚点，QUANTUM-scout 回填后修订）
 设计原语链：多纠缠张量网（W 态/GHZ 的张量表示）→ 长程纠缠=跨层转译边的非定域关联（四语网中的"隐形传态"=W2 协议的量子像）→ n阶d维张量场 ↔ 系统态势张量 Φ → Ising/自旋玻璃 QUBO（IPGSA 已跑通 neal 对拍）→ 相变几何化（Gyroid 作为退火能量面的候选几何——**原创命名候选，借范核实中**）→ 光电 Ising 机（CIM 借范存在）→ 张量语义（缩并=语义合成）→ 四语跨域多纠缠计算。

@@ -12,7 +12,7 @@ tn_residual(field_a, field_b) -> scalar     # 场间残差→FINDING
 
 ## 嵌入点
 T1 计算后端注册表：quimb/TensorNetwork/ITensor/tenpy/Cotengra（调研中 research/TN-toolchain.md）
-T2 量子启发优化：Ising/退火/QAOA 模拟——对接 Quafu 线（quafu-poller 已在跑）与 qlv-lab
+T2 量子启发优化：Ising/退火/QAOA 模拟——对接 Quafu 线（quafu-poller 已在跑）与 QLV-VAULT
 T3 语义计算：DisCoCat/lambeq 借范（张量语义）
 T4 形式化接合：TN 性质的 SMT/LEAN 表达（与 ATP-lab、fourlang-01 E5 交汇）
 T5 IPGSA/相变几何化：量子求解预研（开放研究，讨论室议题）

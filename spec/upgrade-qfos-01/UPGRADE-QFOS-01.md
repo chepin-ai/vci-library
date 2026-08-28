@@ -1,6 +1,6 @@
 # UPGRADE-QFOS-01 · cisvr QF-OS 雏形 → URE/义务机升级映射（v1.0）
 
-2026-08-25 · usrm 编 · 源：QFOS-archaeology（八件套全实证，ci-control 一手设计件）
+2026-08-25 · usrm 编 · 源：QFOS-archaeology（八件套全实证，HUB-CORE 一手设计件）
 
 ## 0. 总判
 cisvr 的 QF-OS 雏形与我们独立建造的 URE/义务机是**同一抽象机的两套实现**（UNIFY-01 定理的第二次印证）；八件套中三件我们已有同构件（互相作证），五件带来真升级。
