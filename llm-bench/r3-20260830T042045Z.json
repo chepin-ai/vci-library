@@ -1,0 +1,26 @@
+{
+ "ts": "2026-08-30T04:20:45Z",
+ "round": "R3-armB",
+ "task": "duty-summary",
+ "rows": [
+  {
+   "provider": "deepseek",
+   "model": "deepseek-chat",
+   "ok": true,
+   "sec": 1.1,
+   "out_head": "VCI-VINF 08-30值守发现注册表404，根因是迁移码未跟随，修复措施为改指公共面正本。"
+  },
+  {
+   "provider": "kimi",
+   "model": "moonshot-v1-8k",
+   "ok": true,
+   "sec": 2.4,
+   "out_head": "在08-30的值守过程中，发现vci-vinf注册表出现404错误，原因是迁移码未随系统迁移，解决方案是修改指向正确的公共面本。"
+  },
+  {
+   "provider": "longcat",
+   "ok": null,
+   "note": "endpoint未定(候root)——honest pending，key已置"
+  }
+ ]
+}
