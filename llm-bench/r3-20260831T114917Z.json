@@ -1,0 +1,12 @@
+{
+ "ts": "2026-08-31T11:49:17Z",
+ "round": "R3-armB",
+ "task": "duty-summary",
+ "rows": [
+  {
+   "provider": "longcat",
+   "ok": null,
+   "note": "endpoint未定(候root)——honest pending，key已置"
+  }
+ ]
+}
