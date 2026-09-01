@@ -1,0 +1,20 @@
+{
+ "open": {
+  "07032037ff": {
+   "finding": {
+    "kind": "pulse-stale",
+    "note": "影子脉搏 20260829-205229 年龄 69.9h（>2×6h 班）"
+   },
+   "first": "20260901-184827",
+   "ticks": 1
+  },
+  "1094fa63bf": {
+   "finding": {
+    "kind": "chain-diverge",
+    "note": "pulse.log 链头与 status.json 不一致"
+   },
+   "first": "20260901-184827",
+   "ticks": 1
+  }
+ }
+}
