@@ -1,0 +1,24 @@
+{
+ "ts": "2026-09-01T07:25Z",
+ "round": "R4-live",
+ "task": "verdict-4char",
+ "rows": [
+  {
+   "provider": "longcat",
+   "model": "LongCat-2.0",
+   "ok": true,
+   "endpoint": "https://api.longcat.chat/openai/v1",
+   "note": "ak_ 键实测通过；thinking 控制实证（disabled→content 正常）；endpoint 自发现（官方文档），root 原子消解"
+  },
+  {
+   "provider": "deepseek",
+   "ok": null,
+   "note": "旧键按泄露废，绝不用"
+  },
+  {
+   "provider": "kimi",
+   "ok": null,
+   "note": "旧键按泄露废，绝不用"
+  }
+ ]
+}
