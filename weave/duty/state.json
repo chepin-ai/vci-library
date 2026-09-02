@@ -6,7 +6,7 @@
     "note": "pulse.log 链头与 status.json 不一致"
    },
    "first": "20260901-184827",
-   "ticks": 55,
+   "ticks": 56,
    "escalate": true
   }
  }
