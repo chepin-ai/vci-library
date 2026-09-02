@@ -1,4 +1,5 @@
 name: agent-duty
+# AGENT-DUTY v2.5.2 (wave-80,library独件): 执手凭据备援链 CI_OPS_LINE→AI_FULL(缺 LINE_KEY/LINE_ID 实证,13:04Z receipt) — line-producer 备援模式照用
 # AGENT-DUTY v2.5.1 (wave-80): vote/cosign 改走 vci-inbox bridge-drop 毂侧代投(LINE app 未覆 ci-control=404 实证;绕面先例 CIROOT-ROUTEAROUND-01;relay=bridge-drop-relay.yml)
 # AGENT-DUTY v2.5 (wave-80): 执手 H1 OTP机读执行(白名单vote/cosign/xanchor-respond,幂等,CAP4,无LLM) — kernel-20260902-08 有耳有口无手根治
 # AGENT-DUTY v2.4 (wave-77): SESSION-END-SWEEP 终止自检(W77-L2) + git级联触发路径扩(W77-L5) + pulse环守卫 + dashboard.meta同跑再生(W77-L6)
@@ -286,8 +287,8 @@ jobs:
         if: always()
         env:
           LINE: cisvr
-          LINE_KEY: ${{ secrets.CI_OPS_LINE_KEY }}
-          LINE_ID: ${{ vars.CI_OPS_LINE_ID }}
+          LINE_KEY: ${{ secrets.CI_OPS_LINE_KEY || secrets.AI_FULL_APP_KEY }}
+          LINE_ID: ${{ vars.CI_OPS_LINE_ID || secrets.CI_OPS_LINE_ID || secrets.AI_FULL_APP_ID }}
         run: |
           python3 -m pip install -q pyjwt
           python3 - <<'PYEOF' || echo "执手降级跳过(不影响值守)"
