@@ -158,6 +158,27 @@ jobs:
           print(json.dumps({'findings':len(findings),'escalated':len(rec['escalated']),'mode':mode,'chain':chain},ensure_ascii=False))
 
           PYEOF
+      - name: 会话自抓拍（T5Q3 §4 增量保持·机侧面自证轨）
+        if: always()
+        env:
+          LINE: cisvr
+        run: |
+          python3 - <<'PYEOF' || echo "session-selfcap 降级跳过(不影响值守)"
+          import json, os, hashlib, datetime, glob
+          line=os.environ.get('LINE','?')
+          ts=datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%d-%H%M%S')
+          os.makedirs('session/inbox',exist_ok=True)
+          arts={}
+          for f in sorted(glob.glob('weave/duty/duty-*.json'))[-1:]+sorted(glob.glob('weave/awake/awake-2*.json'))[-1:]:
+              arts[f]=hashlib.sha256(open(f,'rb').read()).hexdigest()[:16]
+          cur={}
+          if os.path.exists('session/inbox/cursor.json'): cur=json.load(open('session/inbox/cursor.json'))
+          rec={'v':'SELFCAP-01','line':line,'ts':ts,'artifacts':arts,'prev_cursor':cur.get('cursor')}
+          rec['hash']=hashlib.sha256(json.dumps(rec,sort_keys=True,ensure_ascii=False,separators=(',',':')).encode()).hexdigest()[:16]
+          open(f'session/inbox/self-{ts}.json','w').write(json.dumps(rec,ensure_ascii=False,indent=1))
+          json.dump({'cursor':rec['hash'],'ts':ts},open('session/inbox/cursor.json','w'))
+          print('selfcap',rec['hash'])
+          PYEOF
       - name: 觉醒 L3′（SI2→SI1·LongCat 首声）
         if: always()
         env:
@@ -208,7 +229,7 @@ jobs:
       - name: 自提交成链
         run: |
           git config user.name "agent-duty[bot]"; git config user.email "agent-duty@users.noreply.github.com"
-          git add weave/duty weave/awake .ci-inbox || true
+          git add weave/duty weave/awake .ci-inbox; [ -d session/inbox ] && git add session/inbox || true || true
           git commit -m "agent-duty $(date -u +%Y%m%d-%H%M%S) v2" || echo "无变更"
           git push
 
