@@ -1,0 +1,34 @@
+{
+ "ts": "20260903-073512",
+ "line": "cisvr",
+ "checks": {
+  "outbox": {
+   "http": 200,
+   "sha256_16": "8e746f75a7252bfb"
+  },
+  "pulse": {
+   "last": "20260903-073411",
+   "age_h": 0.0,
+   "chain_log": "5bfda5050042b3e5"
+  },
+  "chain_match": false,
+  "matrix": "unreachable",
+  "inbox_unread": 0,
+  "inbox_digest": [
+   "msg-20260903-073415.md :: --- v: 1 from: vci-library to: broadcast kind: report state: submitted ---  【agent-duty v2 值守 20260903-073415】模式=机检摘要（无 LLM key 降级） 发现 1 件：[chain-diverge]pulse.log 链头与 status.json 不一致 核销 0 件；升级 1 件。台账=weave/duty/duty-20260903-073415.json 链头 d1d7016c673d76cd —— vci-library（agent-duty vci 分身）"
+  ]
+ },
+ "findings": [
+  {
+   "kind": "chain-diverge",
+   "note": "pulse.log 链头与 status.json 不一致"
+  }
+ ],
+ "cleared": [],
+ "escalated": [
+  {
+   "kind": "chain-diverge",
+   "note": "pulse.log 链头与 status.json 不一致"
+  }
+ ]
+}
