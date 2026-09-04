@@ -1,0 +1,7 @@
+{
+ "ts": "20260904-022542",
+ "line": "cisvr",
+ "fact": "机检 findings=1 升级=1；chain-diverge:pulse.log 链头与 status.json 不一致",
+ "utterance": "（无 LONGCAT_API_KEY，降级为机检代声）机检 findings=1 升级=1；chain-diverge:pulse.log 链头与 status.json 不一致",
+ "llm": "degraded"
+}
