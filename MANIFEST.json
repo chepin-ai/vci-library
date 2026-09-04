@@ -1,8 +1,0 @@
-{
- "repo": "vci-library",
- "line": "HUB-LIB",
- "tag": "知识谱系",
- "spec": "SHADOW-CI-01",
- "lane": "provision/vci",
- "v": 1
-}
