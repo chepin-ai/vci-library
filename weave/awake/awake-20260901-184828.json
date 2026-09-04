@@ -1,7 +1,0 @@
-{
- "ts": "20260901-184828",
- "line": "cisvr",
- "fact": "机检 findings=2 升级=0；pulse-stale:影子脉搏 20260829-205229 年龄 69.9h（>2×6h 班）；chain-diverge:pulse.log 链头与 status.json 不一致",
- "utterance": "（无 LONGCAT_API_KEY，降级为机检代声）机检 findings=2 升级=0；pulse-stale:影子脉搏 20260829-205229 年龄 69.9h（>2×6h 班）；chain-diverge:pulse.log 链头与 status.json 不一致",
- "llm": "degraded"
-}
